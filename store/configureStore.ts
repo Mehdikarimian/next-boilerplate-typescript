@@ -3,11 +3,9 @@ import createSagaMiddleware, { Task } from 'redux-saga';
 import createReducer from './reducers';
 import rootSaga from '../pages/saga';
 import state from './initialState';
+import { TStore } from './interfaces';
 
-type TStore = Store & {
-  sagaTask?: Task;
-  runSagaTask?: () => void;
-};
+
 declare global {
   interface Window {
     __REDUX_DEVTOOLS_EXTENSION_COMPOSE__: any;

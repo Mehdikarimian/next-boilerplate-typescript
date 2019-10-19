@@ -2,8 +2,10 @@ import React from 'react';
 import Heading from '../../components/heading';
 import Heading2 from '../../components/heading2';
 import { Wrapper } from './style';
+import Layout from '../../layouts/NoneLayout';
 
 export default class Home extends React.Component {
+  static Layout = Layout;
   constructor(props: any) {
     super(props);
   }

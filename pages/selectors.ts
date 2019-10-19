@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import { IStore } from '../utils/reducers';
+import { IStore } from '../store/reducers';
 import { initialState } from './reducer';
 
 const selectIndexDomain = (state: IStore) => state.index || initialState;
