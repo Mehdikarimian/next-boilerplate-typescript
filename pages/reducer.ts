@@ -1,22 +1,15 @@
 import produce from 'immer';
 import { DEFAULT_ACTION, GET_ALL_POST, GET_ALL_POST_SUCCESS, GET_ALL_POST_FAIELD } from './constants';
-import { Action } from 'redux';
-
+import { IIndexAction, IIndexStore } from './interfaces';
 
 export const initialState: IIndexStore = {
   start: false,
   posts: [],
 };
-export interface IIndexStore {
-  start: Boolean,
-  posts: Array<Object>,
-}
-type IndexAction = Action & {
-  data: any,
-  error: any,
-}
 
-export const IndexReducer = (state = initialState, action: IndexAction) =>
+
+
+export const IndexReducer = (state = initialState, action: IIndexAction) =>
   produce(state, draft => {
     switch (action.type) {
       case GET_ALL_POST:

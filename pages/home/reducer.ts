@@ -1,15 +1,11 @@
 import produce from 'immer';
 import { DEFAULT_ACTION } from './constants';
+import { IHomeStore, IHomeAction } from './interfaces';
 
-export interface IHomeStore {
-  active: boolean;
-}
-export const initialState: IHomeStore = {
-  active: false,
-};
+export const initialState: IHomeStore = {};
 
-export const HomeReducer = (state = initialState, action: any) =>
-  produce(state, (draft) => {
+export const HomeReducer = (state = initialState, action: IHomeAction) =>
+  produce(state, (/*draft*/) => {
     switch (action.type) {
       case DEFAULT_ACTION:
         break;

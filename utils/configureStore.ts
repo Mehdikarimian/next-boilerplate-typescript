@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware, Store, compose } from 'redux';
 import createSagaMiddleware, { Task } from 'redux-saga';
 import createReducer from './reducers';
-import rootSaga from './saga';
+import rootSaga from '../pages/saga';
 
 type TStore = Store & {
   sagaTask?: Task;

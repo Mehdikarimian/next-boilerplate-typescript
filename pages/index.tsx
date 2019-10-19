@@ -4,11 +4,8 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
 import SelectIndexState from './selectors';
+import { IIndexProps } from './interfaces';
 
-interface IIndexProps {
-  dispatch: Function,
-  IndexState: any
-}
 class Index extends React.Component<IIndexProps> {
   constructor(props: IIndexProps) {
     super(props);
@@ -18,7 +15,7 @@ class Index extends React.Component<IIndexProps> {
   }
   private mapPosts() {
     return this.props.IndexState.posts.map((post: any) => (
-      <div>
+      <div key={post.id}>
         <h2>{post.title}</h2>
         <p>{post.body}</p>
       </div>
@@ -32,8 +29,6 @@ class Index extends React.Component<IIndexProps> {
     )
   }
 }
-
-
 
 const mapStateToProps = createStructuredSelector<any, any>({
   IndexState: SelectIndexState()

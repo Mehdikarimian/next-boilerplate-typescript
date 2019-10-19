@@ -4,8 +4,8 @@
 
 import { all } from 'redux-saga/effects';
 
-import IndexSaga from './pages/saga';
-import HomeSaga from './pages/home/saga';
+import IndexSaga from '../pages/saga';
+import HomeSaga from '../pages/home/saga';
 
 
 export default function* rootSaga() {

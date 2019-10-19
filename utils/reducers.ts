@@ -4,11 +4,11 @@
 
 import { combineReducers } from 'redux';
 
-import indexReducer from './pages/reducer';
-import { IIndexStore } from './pages/reducer';
+import indexReducer from '../pages/reducer';
+import { IIndexStore } from '../pages/interfaces';
 
-import homeReducer from './pages/home/reducer';
-import { IHomeStore } from './pages/home/reducer';
+import homeReducer from '../pages/home/reducer';
+import { IHomeStore } from '../pages/home/interfaces';
 
 export interface IStore {
   home: IHomeStore,
