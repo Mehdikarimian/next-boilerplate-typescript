@@ -5,14 +5,14 @@
 import { combineReducers } from 'redux';
 
 import indexReducer from '../pages/reducer';
-import { IIndexStore } from '../pages/interfaces';
+import { IIndexPage } from '../pages/interfaces';
 
 import homeReducer from '../pages/home/reducer';
-import { IHomeStore } from '../pages/home/interfaces';
+import { IHomePage } from '../pages/home/interfaces';
 
 export interface IStore {
-  home: IHomeStore,
-  index: IIndexStore,
+  home: IHomePage.IState,
+  index: IIndexPage.IState,
 }
 export default combineReducers<IStore>({
   index: indexReducer,

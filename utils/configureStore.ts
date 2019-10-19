@@ -2,6 +2,7 @@ import { createStore, applyMiddleware, Store, compose } from 'redux';
 import createSagaMiddleware, { Task } from 'redux-saga';
 import createReducer from './reducers';
 import rootSaga from '../pages/saga';
+import state from './initialState';
 
 type TStore = Store & {
   sagaTask?: Task;
@@ -14,7 +15,7 @@ declare global {
   }
 }
 
-export default function configureStore(initialState = {}) {
+export default function configureStore(initialState = state) {
   let reduxSagaMonitorOptions = {};
   let composeEnhancers = compose;
 

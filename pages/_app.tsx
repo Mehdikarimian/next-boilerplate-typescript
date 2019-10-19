@@ -1,4 +1,4 @@
-import App, { Container, AppContext } from 'next/app';
+import App, { AppContext } from 'next/app';
 import * as React from 'react';
 import { Provider } from 'react-redux';
 import withRedux from 'next-redux-wrapper'

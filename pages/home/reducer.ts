@@ -1,10 +1,10 @@
 import produce from 'immer';
 import { DEFAULT_ACTION } from './constants';
-import { IHomeStore, IHomeAction } from './interfaces';
+import { IHomePage } from './interfaces';
 
-export const initialState: IHomeStore = {};
+export const initialState: IHomePage.IState = {};
 
-export const HomeReducer = (state = initialState, action: IHomeAction) =>
+export const HomeReducer = (state = initialState, action: IHomePage.IAction) =>
   produce(state, (/*draft*/) => {
     switch (action.type) {
       case DEFAULT_ACTION:

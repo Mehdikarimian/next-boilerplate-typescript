@@ -1,3 +1,5 @@
-export interface IHeading {
-  text: string;
+export namespace IHeadingComponent {
+  export interface IProps {
+    text: string;
+  }
 }

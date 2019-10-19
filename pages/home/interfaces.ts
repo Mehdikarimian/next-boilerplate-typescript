@@ -1,9 +1,10 @@
 import { Action } from "redux";
 
-export interface IHomeStore {
+export namespace IHomePage {
+  export interface IState { }
 
-}
-export type IHomeAction = Action & {
-  data: any,
-  error: any,
+  export type IAction = Action & {
+    data: any,
+    error: any,
+  }
 }

@@ -4,10 +4,10 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
 import SelectIndexState from './selectors';
-import { IIndexProps } from './interfaces';
+import { IIndexPage } from './interfaces';
 
-class Index extends React.Component<IIndexProps> {
-  constructor(props: IIndexProps) {
+class Index extends React.Component<IIndexPage.IProps> {
+  constructor(props: IIndexPage.IProps) {
     super(props);
   }
   componentDidMount() {

@@ -1,16 +1,18 @@
 import { Action } from 'redux';
 
-export interface IIndexStore {
-  start: Boolean,
-  posts: Array<Object>,
-}
+export namespace IIndexPage {
+  export interface IState {
+    start: Boolean,
+    posts: Array<Object>,
+  }
 
-export type IIndexAction = Action & {
-  data: any,
-  error: any,
-}
+  export type IAction = Action & {
+    data: any,
+    error: any,
+  }
 
-export interface IIndexProps {
-  dispatch: Function,
-  IndexState: any
-}
+  export interface IProps {
+    dispatch: Function,
+    IndexState: any
+  }
+} 
