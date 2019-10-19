@@ -1,4 +1,5 @@
 import { Action } from 'redux';
+import { WithTranslation } from 'next-i18next';
 
 export namespace IIndexPage {
   export interface IState {
@@ -11,8 +12,11 @@ export namespace IIndexPage {
     error: any,
   }
 
-  export interface IProps {
+  export type IProps = WithTranslation & {
     dispatch: Function,
+    IndexState: any,
+  };
+  export interface ISelectorProps {
     IndexState: any
   }
 } 

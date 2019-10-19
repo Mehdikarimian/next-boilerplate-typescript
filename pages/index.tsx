@@ -5,6 +5,8 @@ import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
 import SelectIndexState from './selectors';
 import { IIndexPage } from './interfaces';
+import { withTranslation } from '../i18n';
+import { IStore } from '../store/reducers';
 
 class Index extends React.Component<IIndexPage.IProps> {
   constructor(props: IIndexPage.IProps) {
@@ -24,17 +26,18 @@ class Index extends React.Component<IIndexPage.IProps> {
   public render(): JSX.Element {
     return (
       <div>
+        <h2>{this.props.t('title')}</h2>
         {this.mapPosts()}
       </div>
     )
   }
 }
 
-const mapStateToProps = createStructuredSelector<any, any>({
-  IndexState: SelectIndexState()
+const mapStateToProps = createStructuredSelector<IStore, IIndexPage.ISelectorProps>({
+  IndexState: SelectIndexState(),
 });
 
-function mapDispatchToProps(dispatch: any) {
+function mapDispatchToProps(dispatch: Function) {
   return {
     dispatch,
   };
@@ -45,5 +48,5 @@ const withConnect = connect(
   mapDispatchToProps,
 );
 
-export default compose(withConnect)(Index);
+export default compose(withConnect)(withTranslation(['common'])(Index));
 

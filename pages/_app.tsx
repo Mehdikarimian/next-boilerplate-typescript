@@ -6,13 +6,15 @@ import withReduxSaga from 'next-redux-saga'
 import configureStore from '../store/configureStore';
 import MainLayout from '../layouts/MainLayout';
 import { IApp, IAppComponentType } from './_interfaces';
+import { appWithTranslation } from '../i18n'
 
 class MyApp extends App<IApp> {
   static async getInitialProps(appContext: AppContext) {
-    let pageProps = {};
+    let pageProps = { namespacesRequired: ['common'] };
 
     if (appContext.Component.getInitialProps) {
-      pageProps = await appContext.Component.getInitialProps(appContext.ctx);
+      const result = await appContext.Component.getInitialProps(appContext.ctx);
+      pageProps = { ...pageProps, ...result };
     }
 
     return { pageProps };
@@ -32,4 +34,4 @@ class MyApp extends App<IApp> {
   }
 }
 
-export default withRedux(configureStore)(withReduxSaga(MyApp));
+export default withRedux(configureStore)(withReduxSaga(appWithTranslation(MyApp)));
