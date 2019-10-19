@@ -1,0 +1,1 @@
+{"ast":null,"code":"export var DEFAULT_ACTION = 'app/home/DEFAULT_ACTION';","map":{"version":3,"sources":["/home/mehdi/Projects/jahaninfo/next-boilerplate-ts/pages/home/constants.ts"],"names":["DEFAULT_ACTION"],"mappings":"AAAA,OAAO,IAAMA,cAAc,GAAG,yBAAvB","sourcesContent":["export const DEFAULT_ACTION = 'app/home/DEFAULT_ACTION';\n"]},"metadata":{},"sourceType":"module"}
