@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` 1`] = `
+.c0 {
+  color: red;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`With Enzyme Should render and match the snapshot 1`] = `ShallowWrapper {}`;

@@ -1,6 +1,7 @@
 import React from 'react';
-import { Wrapper } from "./style.js";
+import { Wrapper } from "./style";
 import { IHeadingComponent } from './interfaces.js';
+import styled from 'styled-components';
 
 export default class Heading extends React.Component<IHeadingComponent.IProps> {
   constructor(props: any) {
@@ -8,7 +9,7 @@ export default class Heading extends React.Component<IHeadingComponent.IProps> {
   }
   render(): JSX.Element {
     const { text } = this.props;
-    return (<Wrapper>{text}</Wrapper>)
+    return (<Wrapper><h2>{text}</h2></Wrapper>)
   }
 }
 

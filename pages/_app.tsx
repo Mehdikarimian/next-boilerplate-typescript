@@ -3,10 +3,12 @@ import * as React from 'react';
 import { Provider } from 'react-redux';
 import withRedux from 'next-redux-wrapper'
 import withReduxSaga from 'next-redux-saga'
+import { Helmet } from 'react-helmet';
 import configureStore from '../store/configureStore';
-import MainLayout from '../layouts/MainLayout';
+import MainLayout from '../layouts/Default';
 import { IApp, IAppComponentType } from './_interfaces';
 import { appWithTranslation } from '../i18n'
+import '../style.css'
 
 class MyApp extends App<IApp> {
   static async getInitialProps(appContext: AppContext) {
@@ -24,12 +26,22 @@ class MyApp extends App<IApp> {
     const { Component, pageProps, store } = this.props;
     const Layout = (Component as IAppComponentType).Layout;
     return (
-      <Provider store={store}>
-        {Layout ?
-          <Layout><Component {...pageProps} /></Layout> :
-          <MainLayout><Component {...pageProps} /></MainLayout>
-        }
-      </Provider>
+      <>
+        <Helmet
+          htmlAttributes={{ lang: 'en' }}
+          title='Hello next.js!'
+          meta={[
+            { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+            { property: 'og:title', content: 'Hello next.js!' }
+          ]}
+        />
+        <Provider store={store}>
+          {Layout ?
+            <Layout><Component {...pageProps} /></Layout> :
+            <MainLayout><Component {...pageProps} /></MainLayout>
+          }
+        </Provider>
+      </>
     );
   }
 }

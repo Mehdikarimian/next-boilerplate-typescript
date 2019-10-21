@@ -7,7 +7,7 @@ export default class Home extends React.Component {
   }
   public render(): JSX.Element {
     return (
-      <Container>
+      <Container className="container">
         {this.props.children}
       </Container>
     )

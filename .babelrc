@@ -8,6 +8,9 @@
       {
         "ssr": true
       }
+    ],
+    [
+      "inline-react-svg"
     ]
   ]
 }

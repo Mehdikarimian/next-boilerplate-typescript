@@ -1,25 +1,25 @@
-const webpack = require("webpack");
-// Initialize doteenv library
-require("dotenv").config();
+require('dotenv').config()
 
-module.exports = {
+const path = require('path')
+const Dotenv = require('dotenv-webpack')
+const withCSS = require('@zeit/next-css')
+
+module.exports = withCSS({
+  cssModules: true,
   webpack: config => {
-    // Fixes npm packages that depend on `fs` module
-    config.node = {
-      fs: 'empty'
-    }
-    /**
-     * Returns environment variables as an object
-     */
-    const env = Object.keys(process.env).reduce((acc, curr) => {
-      acc[`process.env.${curr}`] = JSON.stringify(process.env[curr]);
-      return acc;
-    }, {});
+    config.plugins = config.plugins || [
 
-    /** Allows you to create global constants which can be configured
-    * at compile time, which in our case is our environment variables
-    */
-    config.plugins.push(new webpack.DefinePlugin(env));
+    ]
+
+    config.plugins = [
+      ...config.plugins,
+
+      new Dotenv({
+        path: path.join(__dirname, '.env'),
+        systemvars: true
+      })
+    ]
+
     return config
   }
-}
+})
