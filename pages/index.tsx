@@ -7,27 +7,19 @@ import SelectIndexState from './selectors';
 import { IIndexPage } from './interfaces';
 import { withTranslation } from '../i18n';
 import { IStore } from '../store/reducers';
+import Posts from '../sections/posts';
 
 class Index extends React.Component<IIndexPage.IProps> {
   constructor(props: IIndexPage.IProps) {
+    props.dispatch(getAll())
     super(props);
   }
-  componentDidMount() {
-    this.props.dispatch(getAll())
-  }
-  private mapPosts() {
-    return this.props.IndexState.posts.map((post: any) => (
-      <div key={post.id}>
-        <h2>{post.title}</h2>
-        <p>{post.body}</p>
-      </div>
-    ))
-  }
   public render(): JSX.Element {
+    const { posts } = this.props.IndexState;
     return (
       <div>
         <h2>{this.props.t('title')}</h2>
-        {this.mapPosts()}
+        <Posts posts={posts} />
       </div>
     )
   }
