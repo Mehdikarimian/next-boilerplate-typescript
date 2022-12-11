@@ -23,7 +23,7 @@
     "cookie-parser": "^1.4.4",
     "dotenv": "^8.2.0",
     "dotenv-webpack": "^1.7.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "history": "^4.10.1",
     "immer": "^4.0.1",
     "next": "^9.1.1",
